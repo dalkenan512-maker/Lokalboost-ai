@@ -1,3 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LokalBoost AI | Fikrini Gerçeğe Dönüştür</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#080d19;color:#f5f7ff;font-family:Arial,sans-serif}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #202b40}
+.logo{font-size:24px;font-weight:800;color:#71e5bd}
+nav a{color:#c5cede;text-decoration:none;margin-left:20px}
+.hero{text-align:center;padding:75px 18px 50px}
+.tag{color:#71e5bd;font-size:13px;letter-spacing:2px}
+h1{font-size:clamp(36px,7vw,65px);line-height:1.12;margin:22px auto;max-width:850px}
+h1 span{color:#71e5bd}
+.hero>p{color:#aeb9cc;font-size:17px;line-height:1.7}
+.panel{max-width:760px;margin:35px auto;background:#141e31;border:1px solid #2b3b55;border-radius:20px;padding:22px}
+textarea{width:100%;height:125px;background:#0b1425;color:white;border:1px solid #293953;border-radius:12px;padding:16px;font-size:16px;resize:vertical}
+textarea:focus{outline:1px solid #71e5bd}
+button{cursor:pointer;border:0;border-radius:10px;padding:14px 20px;font-weight:bold;font-size:15px}
+.mainbtn{background:#71e5bd;color:#07150f;width:100%;margin-top:14px}
+.examples{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+.examples button{background:#25344c;color:#e8edf7;font-size:13px;padding:10px 13px}
+#result{display:none;text-align:left;background:#0b1425;border:1px solid #30435e;padding:20px;border-radius:14px;margin-top:20px;line-height:1.7}
+#result h3{color:#71e5bd}
+#result ol{padding-left:22px}
+.copy{background:#263952;color:white;margin-top:10px}
+section{padding:55px 7%;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px;max-width:1050px;margin:30px auto}
+.card{background:#141e31;border:1px solid #293953;border-radius:15px;padding:24px;text-align:left}
+.card h3{color:#71e5bd}
+.card p{color:#aeb9cc;line-height:1.6}
+footer{text-align:center;padding:35px;color:#8290a7;border-top:1px solid #202b40}
+@media(max-width:600px){
+ header{padding:18px 5%}
+ nav a{font-size:12px;margin-left:8px}
+ .hero{padding-top:55px}
+ .panel{padding:15px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">LokalBoost AI</div>
+<nav><a href="#hizmetler">Hizmetler</a></nav>
+</header>
+
+<main>
+<div class="hero">
+<div class="tag">YENİ NESİL DİJİTAL ASİSTAN</div>
+<h1>Ne yapmak istiyorsun?<br><span>Birlikte gerçekleştirelim.</span></h1>
+<p>Bir iş kurmak, video hazırlamak, internet sitesi yapmak veya yeni bir fikir geliştirmek...<br>Sen anlat, biz sana yol gösterelim.</p>
+
+<div class="panel">
+<textarea id="idea" placeholder="Örneğin: Almanya'da internet üzerinden satış yapmak istiyorum..."></textarea>
+<button type="button" class="mainbtn" id="startButton">Bana yardımcı ol →</button>
+
+<div class="examples">
+<button type="button" onclick="example('Bir internet mağazası kurmak istiyorum')">🌐 İnternet mağazası</button>
+<button type="button" onclick="example('Bir video hazırlamak istiyorum')">🎬 Video hazırla</button>
+<button type="button" onclick="example('Sıfırdan bir iş kurmak istiyorum')">🚀 İş kur</button>
+<button type="button" onclick="example('Bir mobil uygulama yapmak istiyorum')">📱 Uygulama yap</button>
+<button type="button" onclick="example('Bir belge hazırlamak istiyorum')">📝 Belge hazırla</button>
+</div>
+
+<div id="result" aria-live="polite"></div>
+</div>
+</div>
+
+<section id="hizmetler">
+<h2>Tek platform. Birçok çözüm.</h2>
+<div class="cards">
+<div class="card"><h3>🎬 Video ve Tasarım</h3><p>Video, görsel ve sosyal medya içerikleri için yol haritası oluştur.</p></div>
+<div class="card"><h3>🚀 İş Kurma</h3><p>İş fikrini geliştir, müşterilerini belirle ve gelir modelini planla.</p></div>
+<div class="card"><h3>🌐 İnternet Dünyası</h3><p>Web sitesi, e-ticaret ve dijital projelerine başla.</p></div>
+<div class="card"><h3>📝 Belgeler</h3><p>Metin, sunum, özgeçmiş ve diğer belgelerini hazırla.</p></div>
+</div>
+</section>
+</main>
+
+<footer>© 2026 LokalBoost AI · Fikirlerini hayata geçir.</footer>
+
+<script>
+function example(value){
+ document.getElementById("idea").value=value;
+}
+
+function start(){
+ const idea=document.getElementById("idea").value.trim();
+ const result=document.getElementById("result");
+
+ if(!idea){
+  alert("Önce ne yapmak istediğini yaz.");
+  return;
+ }
+
+ let title="İsteğin için ilk yol haritası";
+ let steps=[
+  "Hedefini ve neye ulaşmak istediğini netleştir.",
+  "Bu hedef için gerekli araçları ve kaynakları belirle.",
+  "İlk uygulanabilir adımı seç ve birlikte ilerle."
+ ];
+
+ const q=idea.toLocaleLowerCase("tr-TR");
+
+ if(/video|film|reels|youtube/.test(q)){
+  title="Video projen için yol haritası";
+  steps=[
+   "Video konusunu ve hedef kitleni belirle.",
+   "Senaryoyu ve sahne planını hazırla.",
+   "Uygun video araçlarıyla üretim ve düzenleme yap."
+  ];
+ }else if(/site|internet|mağaza|e-ticaret|web/.test(q)){
+  title="İnternet projen için yol haritası";
+  steps=[
+   "Ne satacağını veya sunacağını belirle.",
+   "Site tasarımını ve gerekli sayfaları oluştur.",
+   "Ödeme, iletişim ve yayınlama adımlarını planla."
+  ];
+ }else if(/iş kur|şirket|para kazan|girişim|iş fikri/.test(q)){
+  title="İş fikrin için yol haritası";
+  steps=[
+   "Fikrini ve hedef müşterini netleştir.",
+   "Maliyetleri ve gelir modelini hesapla.",
+   "Küçük bir deneme yaparak ilk müşterilerini bul."
+  ];
+ }else if(/uygulama|app|yazılım/.test(q)){
+  title="Uygulama projen için yol haritası";
+  steps=[
+   "Uygulamanın hangi sorunu çözeceğini belirle.",
+   "Ekranları ve temel özellikleri tasarla.",
+   "İlk prototipi oluştur ve test et."
+  ];
+ }else if(/belge|cv|özgeçmiş|sunum|yazı/.test(q)){
+  title="Belgen için yol haritası";
+  steps=[
+   "Belgenin amacını ve okuyucusunu belirle.",
+   "İçeriği düzenle ve taslağı oluştur.",
+   "Son kontrolleri yapıp kullanıma hazırla."
+  ];
+ }
+
+ const heading=document.createElement("h3");
+ heading.textContent=title;
+
+ const target=document.createElement("p");
  target.textContent="Hedefin: "+idea;
 
  const list=document.createElement("ol");
@@ -8,15 +158,33 @@
  });
 
  const note=document.createElement("p");
- note.textContent="Bu ücretsiz demo sürümüdür. Gerçek yapay zekâ bağlantısı henüz bulunmuyor.";
+ note.textContent="Bu ücretsiz prototip, önceden tanımlanmış kurallarla çalışır. Gerçek yapay zekâ bağlantısı henüz eklenmemiştir.";
 
- result.appendChild(heading);
- result.appendChild(target);
- result.appendChild(list);
- result.appendChild(note);
+ const copy=document.createElement("button");
+ copy.className="copy";
+ copy.type="button";
+ copy.textContent="Planı kopyala";
+ copy.onclick=function(){
+  const content=title+"\n"+target.textContent+"\n"+steps.map(function(s,i){return (i+1)+". "+s;}).join("\n");
+  if(navigator.clipboard && navigator.clipboard.writeText){
+   navigator.clipboard.writeText(content).then(function(){
+    copy.textContent="Kopyalandı ✓";
+   }).catch(function(){
+    copy.textContent="Kopyalama başarısız";
+   });
+  }else{
+   copy.textContent="Kopyalama desteklenmiyor";
+  }
+ };
+
+ result.replaceChildren(heading,target,list,note,copy);
  result.style.display="block";
+ result.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
+
+document.getElementById("startButton").addEventListener("click",start);
 </script>
 
 </body>
 </html>
+
