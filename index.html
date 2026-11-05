@@ -1,1 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LokalBoost AI | Hayalini Gerçeğe Dönüştür</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090d18;color:#fff;font-family:Arial,sans-serif}
+header{padding:25px 8%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold;color:#75e6c0}
+nav a{color:#ddd;text-decoration:none;margin-left:22px}
+.hero{text-align:center;padding:90px 20px 45px}
+.tag{color:#75e6c0}
+h1{font-size:clamp(38px,6vw,65px);margin:20px auto;max-width:850px}
+h1 span{color:#75e6c0}
+.hero p{color:#b5bdce;font-size:18px;line-height:1.6}
+.panel{max-width:750px;margin:35px auto;background:#151d2e;padding:22px;border:1px solid #29364b;border-radius:18px}
+textarea{width:100%;height:120px;background:#0d1422;color:white;border:0;outline:0;resize:vertical;font-size:17px;padding:15px}
+button{background:#75e6c0;color:#07130f;border:0;border-radius:10px;padding:15px 25px;font-size:16px;font-weight:bold;cursor:pointer}
+.examples{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.examples button{background:#253249;color:#fff;font-size:13px;padding:10px}
+#result{display:none;margin-top:20px;padding:20px;background:#0d1422;border-radius:12px;line-height:1.7}
+section{padding:55px 8%;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;max-width:1000px;margin:30px auto}
+.card{background:#151d2e;padding:25px;border:1px solid #29364b;border-radius:15px;text-align:left}
+.card p{color:#b5bdce;line-height:1.5}
+footer{text-align:center;color:#8993a8;padding:35px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">LokalBoost AI</div>
+<nav><a href="#hizmetler">Neler yapabilir?</a></nav>
+</header>
 
+<div class="hero">
+<div class="tag">YAPAY ZEKÂ DESTEKLİ DİJİTAL ASİSTAN</div>
+<h1>Hayalindeki şeyi anlat.<br><span>Gerçekleştirmeye başlayalım.</span></h1>
+<p>Bir iş kurmak, video hazırlamak, internet sitesi yapmak veya bir sorunu çözmek...<br>Ne istediğini söyle. Sana yol gösterelim.</p>
+
+<div class="panel">
+<textarea id="idea" placeholder="Örneğin: Almanya'da kendi internet mağazamı kurmak istiyorum..."></textarea>
+<button onclick="start()">Bana yardımcı ol →</button>
+<div class="examples">
+<button onclick="example('Bir internet mağazası kurmak istiyorum')">Mağaza kur</button>
+<button onclick="example('Bir video hazırlamak istiyorum')">Video hazırla</button>
+<button onclick="example('Yeni bir iş kurmak istiyorum')">İş kur</button>
+<button onclick="example('Bir mobil uygulama yapmak istiyorum')">Uygulama yap</button>
+</div>
+<div id="result"></div>
+</div>
+</div>
+
+<section id="hizmetler">
+<h2>Tek platform. Sınırsız fikir.</h2>
+<div class="cards">
+<div class="card"><h3>🎬 Video ve Tasarım</h3><p>Video, görsel ve yaratıcı içerik projelerine başla.</p></div>
+<div class="card"><h3>🚀 İş Kurma</h3><p>İş fikrini geliştir, iş planı ve yol haritası oluştur.</p></div>
+<div class="card"><h3>🌐 İnternet Dünyası</h3><p>Web sitesi, e-ticaret ve dijital projeler geliştir.</p></div>
+<div class="card"><h3>📝 Belgeler ve Yazılar</h3><p>Metin, sunum, özgeçmiş ve belgeler hazırla.</p></div>
+</div>
+</section>
+
+<footer>© 2026 LokalBoost AI · Fikirlerini hayata geçir.</footer>
+
+<script>
+function example(value){
+document.getElementById('idea').value=value;
+}
+function start(){
+let idea=document.getElementById('idea').value.trim();
+let result=document.getElementById('result');
+if(!idea){alert('Önce ne yapmak istediğini yaz.');return;}
+result.style.display='block';
+result.innerHTML='<h3>Harika! İlk adımımız hazır.</h3><p><b>Hedefin:</b> '+idea.replace(/[&<>"]/g,' ')+'</p><p>1. İsteğini ve hedefini netleştirelim.<br>2. Gerekli araçları belirleyelim.<br>3. Adım adım uygulama planı oluşturalım.</p><p>Bu ilk prototiptir. Gerçek yapay zekâ bağlantısını sonraki aşamada ekleyeceğiz.</p>';
+}
+</script>
+</body>
+</html>
