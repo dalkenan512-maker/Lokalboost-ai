@@ -75,6 +75,72 @@ if(!idea){alert('Önce ne yapmak istediğini yaz.');return;}
 result.style.display='block';
 result.innerHTML='<h3>Harika! İlk adımımız hazır.</h3><p><b>Hedefin:</b> '+idea.replace(/[&<>"]/g,' ')+'</p><p>1. İsteğini ve hedefini netleştirelim.<br>2. Gerekli araçları belirleyelim.<br>3. Adım adım uygulama planı oluşturalım.</p><p>Bu ilk prototiptir. Gerçek yapay zekâ bağlantısını sonraki aşamada ekleyeceğiz.</p>';
 }
+</script><script>
+function example(value) {
+  document.getElementById("idea").value = value;
+}
+
+function start() {
+  const idea = document.getElementById("idea").value.trim();
+  const result = document.getElementById("result");
+
+  if (!idea) {
+    alert("Lütfen ne yapmak istediğini yaz.");
+    return;
+  }
+
+  let plan = "";
+
+  if (/site|internet|mağaza|e-ticaret/i.test(idea)) {
+    plan = "1. Hedef kitleni belirleyelim.<br>2. Site yapısını oluşturalım.<br>3. Ücretsiz araçlarla yayına alalım.";
+  } else if (/video|film|reels/i.test(idea)) {
+    plan = "1. Video fikrini belirleyelim.<br>2. Senaryoyu hazırlayalım.<br>3. Görsel ve kurgu araçlarını seçelim.";
+  } else if (/iş|şirket|para kazan/i.test(idea)) {
+    plan = "1. İş fikrini netleştirelim.<br>2. Müşteri ve gelir modelini belirleyelim.<br>3. İlk müşteriye ulaşma planını hazırlayalım.";
+  } else if (/uygulama|app/i.test(idea)) {
+    plan = "1. Uygulamanın amacını belirleyelim.<br>2. Ekranlarını tasarlayalım.<br>3. İlk çalışan prototipi oluşturalım.";
+  } else {
+    plan = "1. İsteğini analiz edelim.<br>2. Gerekli araçları belirleyelim.<br>3. Sana uygulanabilir bir yol haritası hazırlayalım.";
+  }
+
+  result.style.display = "block";
+  result.innerHTML = "<h3>İlk planın hazır!</h3><p><b>Hedefin:</b> " +
+    idea.replace(/[&<>"]/g, " ") +
+    "</p><p>" + plan + "</p><p>Bu ücretsiz demo sürümüdür.</p>";
+}
+</script><script>
+function example(value) {
+  document.getElementById("idea").value = value;
+}
+
+function start() {
+  const idea = document.getElementById("idea").value.trim();
+  const result = document.getElementById("result");
+
+  if (!idea) {
+    alert("Lütfen ne yapmak istediğini yaz.");
+    return;
+  }
+
+  let plan = "";
+
+  if (/site|internet|mağaza|e-ticaret/i.test(idea)) {
+    plan = "1. Hedef kitleni belirleyelim.<br>2. Site yapısını oluşturalım.<br>3. Ücretsiz araçlarla yayına alalım.";
+  } else if (/video|film|reels/i.test(idea)) {
+    plan = "1. Video fikrini belirleyelim.<br>2. Senaryoyu hazırlayalım.<br>3. Görsel ve kurgu araçlarını seçelim.";
+  } else if (/iş|şirket|para kazan/i.test(idea)) {
+    plan = "1. İş fikrini netleştirelim.<br>2. Müşteri ve gelir modelini belirleyelim.<br>3. İlk müşteriye ulaşma planını hazırlayalım.";
+  } else if (/uygulama|app/i.test(idea)) {
+    plan = "1. Uygulamanın amacını belirleyelim.<br>2. Ekranlarını tasarlayalım.<br>3. İlk çalışan prototipi oluşturalım.";
+  } else {
+    plan = "1. İsteğini analiz edelim.<br>2. Gerekli araçları belirleyelim.<br>3. Sana uygulanabilir bir yol haritası hazırlayalım.";
+  }
+
+  result.style.display = "block";
+  result.innerHTML = "<h3>İlk planın hazır!</h3><p><b>Hedefin:</b> " +
+    idea.replace(/[&<>"]/g, " ") +
+    "</p><p>" + plan + "</p><p>Bu ücretsiz demo sürümüdür.</p>";
+}
 </script>
 </body>
 </html>
